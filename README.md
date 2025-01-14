@@ -4,7 +4,7 @@
 
 > **Note**: This repository showcases a project I led during my worktime at company.
 
-This project began as a Django-based web application focused on automating vehicle identification through real-time **Automatic Number Plate Recognition (ANPR)**. During my time at company, this system is adapted this system to integrate with barrier control systems for access management. Additionally, the solution was optimized for deployment on **Raspberry Pi 5**.
+This project began as a Django-based web application designed for **real-time Automatic Number Plate Recognition (ANPR)**. The system automates the detection and identification of vehicles. During my time at company, the system is adapted to integrate with barrier control systems for access management. Additionally, the solution was optimized for deployment on **Raspberry Pi 5**.
 
 ## Tools and Frameworks for Development
 <p>
