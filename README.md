@@ -2,47 +2,66 @@
 
 ![Demo Animation](documents/images/demo.gif)
 
-**Note:** This repository showcases a project I was responsible for while working at my company.
+> **Note**: This repository showcases a project I led during my worktime at company.
 
-This is a Django-based web application designed for car detection and **Automatic Number Plate Recognition (ANPR)**. It is specifically tailored for use in authorized barrier control systems.
+This project began as a Django-based web application focused on automating vehicle identification through real-time **Automatic Number Plate Recognition (ANPR)**. During my time at company, this system is adapted this system to integrate with barrier control systems for access management. Additionally, the solution was optimized for deployment on **Raspberry Pi 5**.
 
 ## Tools and Frameworks for Development
 <p>
-<a href="https://www.python.org/"><img src="https://api.iconify.design/logos:python.svg" alt="Python" width="50" height="50"/></a>
-<a href="https://www.w3schools.com/html/"><img src="https://api.iconify.design/logos:html-5.svg" alt="HTML" width="50" height="50"/></a>
-<a href="https://www.w3schools.com/css/"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
-<a href="https://www.w3schools.com/js/"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
-<a href="https://opencv.org/"><img src="https://api.iconify.design/logos:opencv.svg" alt="OpenCV" width="50" height="50"/></a>
-<a href="https://www.djangoproject.com/"><img src="https://api.iconify.design/skill-icons:django.svg" alt="Django" width="50" height="50"/></a>
-<a href="https://getbootstrap.com/"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
-<a href="https://www.mysql.com/"><img src="https://api.iconify.design/logos:mysql.svg" alt="MySQL" width="50" height="50"/></a>
-<a href="https://www.sqlite.org/"><img src="https://api.iconify.design/logos:sqlite.svg" alt="SQLite" width="50" height="50"/></a>
-<a href="https://redis.io/"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
-<a href="https://docs.ultralytics.com/"><img src="documents/images/ultralytics.svg" alt="Ultralytics" width="50" height="50"></a>
+<a href="https://www.python.org/" title="Python"><img src="https://api.iconify.design/logos:python.svg" alt="Python" width="50" height="50"/></a>
+<a href="https://www.w3schools.com/html/" title="HTML"><img src="https://api.iconify.design/logos:html-5.svg" alt="HTML" width="50" height="50"/></a>
+<a href="https://www.w3schools.com/css/" title="CSS"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
+<a href="https://www.w3schools.com/js/" title="JavaScript"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
+<a href="https://opencv.org/" title="OpenCV"><img src="https://api.iconify.design/logos:opencv.svg" alt="OpenCV" width="50" height="50"/></a>
+<a href="https://www.djangoproject.com/" title="Django"><img src="https://api.iconify.design/skill-icons:django.svg" alt="Django" width="50" height="50"/></a>
+<a href="https://getbootstrap.com/" title="Bootstrap"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
+<a href="https://www.mysql.com/" title="MySQL"><img src="https://api.iconify.design/logos:mysql.svg" alt="MySQL" width="50" height="50"/></a>
+<a href="https://www.sqlite.org/" title="SQLite"><img src="https://api.iconify.design/logos:sqlite.svg" alt="SQLite" width="50" height="50"/></a>
+<a href="https://redis.io/" title="Redis"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
+<a href="https://docs.ultralytics.com/" title="Ultralytics"><img src="documents/images/ultralytics.svg" alt="Ultralytics" width="50" height="50"/></a>
 </p>
 
 ## Features
 
 ### **Live Video Streaming**
-Stream real-time video from RTSP-enabled IP cameras for live monitoring through a web browser.
+Stream real-time video from RTSP-protocol IP cameras directly to the web-based live monitoring
 
 ### **Vehicle Detection and License Plate Recognition**
-The backend processes video frames from the live stream, detecting vehicles and extracting their details. This includes: 
-- `Vehicle` and `license plate` images
-- `Brand`, `color`, and `license plate number` information
+The backend processes video frames from the live stream to detect vehicles and extract key details, including:
 
-### **Multiple Frames Processing**
-During license plate recognition, multiple video frames are processed to verify the `license plate number` accurately.
+- Images of **vehicle** and **license plate**
+- Vehicle's **brand**, **color**, and **license plate number**
 
-### **Automatic Perspective**
-All detected license plates are preprocessed to correct perspective orientation before processing license plate number recognition.
+### **Enhanced Accuracy with Multiple Frame Processing**
+To ensure reliability, the system processes multiple video frames during license plate recognition, cross-verifying results to achieve a higher accuracy in recognizing **license plate number**.
 
-![Perspective Correction](documents/images/perspective.png)
+### **Automatic Perspective Correction**
+Detected license plates are automatically preprocessed to correct perspective distortions, improving the accuracy of recognition results.
 
 ### **Region of Interest Customization and Filtering**
-Users can set a region of interest to limit the area for detecting vehicles. Additionally, smaller detected vehicles can be filtered out to save processing resources.
+Users can define a region of interest to limit detection to a specific area of the video frame. The system also allows filtering out smaller detected vehicles to optimize processing resources.
 
-### **Data Collection**
-All detected vehicles are saved into a database.
+### Comprehensive Data Management
+All detected vehicle details are stored in a database. Users can review and label the data as **correct** or **wrong**, providing valuable feedback to improve the system's performance in future.
 
-> **Note:** Django [officially](https://docs.djangoproject.com/en/5.1/ref/databases/) supports the following databases: `PostgreSQL`, `MariaDB`, `MySQL`, `Oracle`, and `SQLite`. Additionally, there are [third-party](https://docs.djangoproject.com/en/5.1/ref/databases/#third-party-notes) database backends.
+> **Note**: Django [officially](https://docs.djangoproject.com/en/5.1/ref/databases/) supports several databases, including **PostgreSQL**, **MariaDB**, **MySQL**, **Oracle**, and **SQLite**. For other databases, [third-party](https://docs.djangoproject.com/en/5.1/ref/databases/#third-party-notes) backends are available.
+
+## Screenshots
+
+### **Processing Breakdown Visualization**
+
+This screenshot showcases the detailed breakdown of the system's processing workflow. It highlights how each vehicle and license plate is detected, recognized, and processed step by step.
+
+![Processing Breakdown](documents/images/Breakdown.png)
+
+### **Database View (License Plate Number Recognition)**
+
+The database view provides a centralized interface for managing recognized license plate information.
+
+![Database View](documents/images/Database.png)
+
+### **Data Labeling Interface**
+
+The data labeling interface allows users to review and label recognition results as either **correct** or **wrong**. This feedback improves the accuracy of the system over time by enhancing the underlying models.
+
+![Data Labeling](documents/images/Labeling.png)
