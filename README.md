@@ -32,6 +32,29 @@ The backend processes video frames from the live stream to detect vehicles and e
 - Images of **vehicle** and **license plate**
 - Vehicle's **brand**, **color**, and **license plate number**
 
+> **Supported Brands**
+    <p>
+    <img src="documents\car_logo\BMW.svg" alt="BMW" width="50" height="50"/>
+    <img src="documents\car_logo\BYD.svg" alt="BYD" width="50" height="50"/>
+    <img src="documents\car_logo\Chevrolet.svg" alt="Chevrolet" width="50" height="50"/>
+    <img src="documents\car_logo\Ford.svg" alt="Ford" width="50" height="50"/>
+    <img src="documents\car_logo\Haval.svg" alt="Haval" width="50" height="50"/>
+    <img src="documents\car_logo\Honda.svg" alt="Honda" width="50" height="50"/>
+    <img src="documents\car_logo\Hyundai.svg" alt="Hyundai" width="50" height="50"/>
+    <img src="documents\car_logo\Isuzu.svg" alt="Isuzu" width="50" height="50"/>
+    <img src="documents\car_logo\Lexus.svg" alt="Lexus" width="50" height="50"/>
+    <img src="documents\car_logo\Mazda.svg" alt="Mazda" width="50" height="50"/>
+    <img src="documents\car_logo\Mercedes Benz.svg" alt="Mercedes Benz" width="50" height="50"/>
+    <img src="documents\car_logo\MG.svg" alt="MG" width="50" height="50"/>
+    <img src="documents\car_logo\Mitsubishi.svg" alt="Mitsubishi" width="50" height="50"/>
+    <img src="documents\car_logo\Nissan.svg" alt="Nissan" width="50" height="50"/>
+    <img src="documents\car_logo\ORA.svg" alt="ORA" width="50" height="50"/>
+    <img src="documents\car_logo\Subaru.svg" alt="Subaru" width="50" height="50"/>
+    <img src="documents\car_logo\Suzuki.svg" alt="Suzuki" width="50" height="50"/>
+    <img src="documents\car_logo\Tesla.svg" alt="Tesla" width="50" height="50"/>
+    <img src="documents\car_logo\Toyota.svg" alt="Toyota" width="50" height="50"/>
+    <p>
+
 ### **Enhanced Accuracy with Multiple Frame Processing**
 To ensure reliability, the system processes multiple video frames during license plate recognition, cross-verifying results to achieve a higher accuracy in recognizing **license plate number**.
 
