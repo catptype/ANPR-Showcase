@@ -48,7 +48,7 @@ The backend processes video frames from the live stream to detect vehicles and e
     <img src="documents\car_logo\MG.svg" alt="MG" width="50" height="50"/>
     <img src="documents\car_logo\Mitsubishi.svg" alt="Mitsubishi" width="50" height="50"/>
     <img src="documents\car_logo\Nissan.svg" alt="Nissan" width="50" height="50"/>
-    <img src="documents\car_logo\ORA.svg" alt="ORA" width="50" height="50"/>
+    <img src="documents\car_logo\Ora.svg" alt="ORA" width="50" height="50"/>
     <img src="documents\car_logo\Subaru.svg" alt="Subaru" width="50" height="50"/>
     <img src="documents\car_logo\Suzuki.svg" alt="Suzuki" width="50" height="50"/>
     <img src="documents\car_logo\Tesla.svg" alt="Tesla" width="50" height="50"/>
