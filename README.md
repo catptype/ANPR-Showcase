@@ -88,3 +88,10 @@ The database view provides a centralized interface for managing recognized licen
 The data labeling interface allows users to review and label recognition results as either **correct** or **wrong**. This feedback improves the accuracy of the system over time by enhancing the underlying models.
 
 ![Data Labeling](documents/images/Labeling.png)
+
+
+### **Data Dashboard**
+
+The dashboard interface allows users to review and summarize the recognition system's accuracy after data labeling. Note that, it displays only approved data.
+
+![Dashboard](documents/images/Dashboard.png)
