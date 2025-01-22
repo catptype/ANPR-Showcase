@@ -73,7 +73,7 @@ All detected vehicle details are stored in a database. Users can review and labe
 
 ### **Processing Breakdown Visualization**
 
-This screenshot showcases the detailed breakdown of the system's processing workflow. It highlights how each vehicle and license plate is detected, recognized, and processed step by step.
+This screenshot presents a detailed breakdown of the system's processing workflow. It illustrates how each vehicle and license plate is detected, recognized, and processed step by step.
 
 ![Processing Breakdown](documents/images/Breakdown.png)
 
@@ -85,7 +85,7 @@ The database view provides a centralized interface for managing recognized licen
 
 ### **Data Labeling Interface**
 
-The data labeling interface allows users to review and label recognition results as either **correct** or **wrong**. This feedback improves the accuracy of the system over time by enhancing the underlying models.
+The data labeling interface enables users to review recognition results and label them as either **correct** or **incorrect**. This feedback helps improve the system’s accuracy over time by refining the underlying models.
 
 ![Data Labeling](documents/images/Labeling.png)
 
