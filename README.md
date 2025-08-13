@@ -70,7 +70,6 @@ The application includes an optional **Dataset Mode** designed to generate high-
 -   A built-in web interface allows operators to review, correct, and validate this saved prediction data.
 -   This workflow provides a powerful, self-contained tool for creating clean, verified datasets ready for model retraining.
 
-
 ### Core Features
 
 **Comprehensive Vehicle Analysis**:
@@ -125,6 +124,20 @@ The application was successfully integrated as the core ANPR engine for the comm
 This integration was a collaborative effort, developed in close cooperation with other teams within the company.
 
 ## System Visuals
+
+### Responsive Design
+*The entire web interface is built with a responsive design, ensuring full functionality and a seamless user experience across devices, from large desktop monitors to tablets and mobile phones.*
+
+![Responsive Design](documents/images/Responsive.png)
+
+### Live Status Monitoring
+The application's main navigation bar doubles as a real-time status panel, providing operators with at-a-glance situational awareness. Using WebSockets, it continuously streams key metrics, including:
+-   The number of active viewers on the page.
+-   An overall system health indicator.
+-   The status of the connected camera stream.
+-   A synchronized system clock.
+
+![Live Monitoring Status Bar](documents/images/Navbar.png)
 
 ### License Plate Processing Pipeline
 
