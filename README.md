@@ -1,97 +1,143 @@
-# ANPR-Showcase
+# Real-time Vehicle Detection & License Plate Recognition System
 
-![Demo Animation](documents/images/demo.gif)
+![Demo Animation](documents/images/demo_v2.gif)
 
-> **Note**: This repository showcases a project I led during my worktime at company.
+> **Portfolio Showcase**: This repository contains documentation for a project I developed and led during my employment. Therefore, source code is not available. This `README` serves as a detailed showcase of the system's architecture, features, and technical implementation.
 
-This project began as a Django-based web application designed for **real-time Automatic Number Plate Recognition (ANPR)**. The system automates the detection and identification of vehicles. During my time at company, the system is adapted to integrate with barrier control systems for access management. Additionally, the solution was optimized for deployment on **Raspberry Pi 5**.
+## Project Overview
 
-## Tools and Frameworks for Development
+This project is a **real-time Automatic Number Plate Recognition (ANPR) system**, developed as a full-stack Django web application. Its core function is to process live video streams from IP cameras (via RTSP) to automatically detect vehicles and extract key information, including their **brand**, **color**, and **license plate number**.
+
+The application’s frontend provides a web interface for users to monitor the live video feed and review detection results in real-time. In parallel, the backend continuously runs AI inferences, processing video frames from the IP cameras to identify vehicles and their attributes.
+
+## Tech Stack
+
+The system is built with a modern, full-stack architecture, leveraging specialized tools for each layer of the application.
+
+### Backend
 <p>
-<a href="https://www.python.org/" title="Python"><img src="https://api.iconify.design/logos:python.svg" alt="Python" width="50" height="50"/></a>
-<a href="https://www.w3schools.com/html/" title="HTML"><img src="https://api.iconify.design/logos:html-5.svg" alt="HTML" width="50" height="50"/></a>
-<a href="https://www.w3schools.com/css/" title="CSS"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
-<a href="https://www.w3schools.com/js/" title="JavaScript"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
-<a href="https://opencv.org/" title="OpenCV"><img src="https://api.iconify.design/logos:opencv.svg" alt="OpenCV" width="50" height="50"/></a>
-<a href="https://www.djangoproject.com/" title="Django"><img src="https://api.iconify.design/skill-icons:django.svg" alt="Django" width="50" height="50"/></a>
-<a href="https://getbootstrap.com/" title="Bootstrap"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
-<a href="https://www.mysql.com/" title="MySQL"><img src="https://api.iconify.design/logos:mysql.svg" alt="MySQL" width="50" height="50"/></a>
-<a href="https://www.sqlite.org/" title="SQLite"><img src="https://api.iconify.design/logos:sqlite.svg" alt="SQLite" width="50" height="50"/></a>
-<a href="https://redis.io/" title="Redis"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
-<a href="https://docs.ultralytics.com/" title="Ultralytics"><img src="documents/images/ultralytics.svg" alt="Ultralytics" width="50" height="50"/></a>
+  <a href="https://www.python.org/" title="Python"><img src="https://api.iconify.design/logos:python.svg" alt="Python" width="50" height="50"/></a>
+  <a href="https://www.djangoproject.com/" title="Django"><img src="https://api.iconify.design/skill-icons:django.svg" alt="Django" width="50" height="50"/></a>
 </p>
 
-## Features
+### AI & Computer Vision
+<p>
+  <a href="https://pytorch.org/" title="PyTorch"><img src="https://api.iconify.design/logos:pytorch-icon.svg" alt="PyTorch" width="50" height="50"/></a>
+  <a href="https://docs.ultralytics.com/" title="Ultralytics YOLO"><img src="documents/images/ultralytics.svg" alt="Ultralytics" width="50" height="50"/></a>
+  <a href="https://opencv.org/" title="OpenCV"><img src="https://api.iconify.design/logos:opencv.svg" alt="OpenCV" width="50" height="50"/></a>
+</p>
 
-### **Live Video Streaming**
-Stream real-time video from RTSP-protocol IP cameras directly to the web-based live monitoring
+### Frontend
+<p>
+  <a href="https://www.w3schools.com/html/" title="HTML5"><img src="https://api.iconify.design/logos:html-5.svg" alt="HTML" width="50" height="50"/></a>
+  <a href="https://www.w3schools.com/css/" title="CSS3"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
+  <a href="https://www.w3schools.com/js/" title="JavaScript"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
+  <a href="https://getbootstrap.com/" title="Bootstrap"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" title="WebSockets"><img src="https://api.iconify.design/logos:websocket.svg" alt="WebSockets" width="50" height="50"/></a>
+</p>
 
-### **Vehicle Detection and License Plate Recognition**
-The backend processes video frames from the live stream to detect vehicles and extract key details, including:
+### Databases & Caching
+<p>
+  <a href="https://www.mysql.com/" title="MySQL"><img src="https://api.iconify.design/logos:mysql.svg" alt="MySQL" width="50" height="50"/></a>
+  <a href="https://www.sqlite.org/" title="SQLite"><img src="https://api.iconify.design/logos:sqlite.svg" alt="SQLite" width="50" height="50"/></a>
+  <a href="https://redis.io/" title="Redis"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
+</p>
 
-- Images of **vehicle** and **license plate**
-- Vehicle's **brand**, **color**, and **license plate number**
+### Deployment & Infrastructure
+<p>
+  <a href="https://www.docker.com/" title="Docker"><img src="https://api.iconify.design/logos:docker-icon.svg" alt="Docker" width="50" height="50"/></a>
+  <a href="https://www.raspberrypi.com/" title="Raspberry Pi"><img src="https://api.iconify.design/devicon:raspberrypi.svg" alt="Raspberry Pi" width="50" height="50"/></a>
+</p>
 
-> **Supported Brands**
-    <p>
-    <img src="documents\car_logo\BMW.svg" alt="BMW" width="50" height="50"/>
-    <img src="documents\car_logo\BYD.svg" alt="BYD" width="50" height="50"/>
-    <img src="documents\car_logo\Chevrolet.svg" alt="Chevrolet" width="50" height="50"/>
-    <img src="documents\car_logo\Ford.svg" alt="Ford" width="50" height="50"/>
-    <img src="documents\car_logo\Haval.svg" alt="Haval" width="50" height="50"/>
-    <img src="documents\car_logo\Honda.svg" alt="Honda" width="50" height="50"/>
-    <img src="documents\car_logo\Hyundai.svg" alt="Hyundai" width="50" height="50"/>
-    <img src="documents\car_logo\Isuzu.svg" alt="Isuzu" width="50" height="50"/>
-    <img src="documents\car_logo\Lexus.svg" alt="Lexus" width="50" height="50"/>
-    <img src="documents\car_logo\Mazda.svg" alt="Mazda" width="50" height="50"/>
-    <img src="documents\car_logo\Mercedes Benz.svg" alt="Mercedes Benz" width="50" height="50"/>
-    <img src="documents\car_logo\MG.svg" alt="MG" width="50" height="50"/>
-    <img src="documents\car_logo\Mitsubishi.svg" alt="Mitsubishi" width="50" height="50"/>
-    <img src="documents\car_logo\Nissan.svg" alt="Nissan" width="50" height="50"/>
-    <img src="documents\car_logo\Ora.svg" alt="ORA" width="50" height="50"/>
-    <img src="documents\car_logo\Subaru.svg" alt="Subaru" width="50" height="50"/>
-    <img src="documents\car_logo\Suzuki.svg" alt="Suzuki" width="50" height="50"/>
-    <img src="documents\car_logo\Tesla.svg" alt="Tesla" width="50" height="50"/>
-    <img src="documents\car_logo\Toyota.svg" alt="Toyota" width="50" height="50"/>
-    <p>
+## System Architecture & Key Features
 
-### **Enhanced Accuracy with Multiple Frame Processing**
-To ensure reliability, the system processes multiple video frames during license plate recognition, cross-verifying results to achieve a higher accuracy in recognizing **license plate number**.
+This section details both the architecture that powers the system and the key features it provides to the end-user.
 
-### **Automatic Perspective Correction**
-Detected license plates are automatically preprocessed to correct perspective distortions, improving the accuracy of recognition results.
+### Architectural Design
 
-### **Region of Interest Customization and Filtering**
-Users can define a region of interest to limit detection to a specific area of the video frame. The system also allows filtering out smaller detected vehicles to optimize processing resources.
+**High-Performance Multi-threaded Pipeline**:
+To ensure smooth real-time performance, the backend operates on a multi-threaded architecture. This design separates concerns, allowing tasks to run concurrently without blocking the main application:
 
-### Comprehensive Data Management
-All detected vehicle details are stored in a database. Users can review and label the data as **correct** or **wrong**, providing valuable feedback to improve the system's performance in future.
+- **Video Capture Thread**: Connects to the RTSP stream and continuously fetches frames.
+- **AI Inference Thread**: Performs vehicle/plate detection and recognition on video frames.
+- **Real-time Broadcasting Thread**: Pushes results to the web UI via WebSockets for live monitoring.
+- **System Health Thread**: Monitors performance and reports status, also via WebSockets.
 
-> **Note**: Django [officially](https://docs.djangoproject.com/en/5.1/ref/databases/) supports several databases, including **PostgreSQL**, **MariaDB**, **MySQL**, **Oracle**, and **SQLite**. For other databases, [third-party](https://docs.djangoproject.com/en/5.1/ref/databases/#third-party-notes) backends are available.
+**Data Collection & Labeling for Model Improvement**:
+The application includes an optional **Dataset Mode** designed to generate high-quality data for training improved AI models. When this mode is activated:
 
-## Screenshots
+-   The system automatically saves all prediction results, including cropped images of vehicles and license plates, to database.
+-   A built-in web interface allows operators to review, correct, and validate this saved prediction data.
+-   This workflow provides a powerful, self-contained tool for creating clean, verified datasets ready for model retraining.
 
-### **Processing Breakdown Visualization**
 
-This screenshot presents a detailed breakdown of the system's processing workflow. It illustrates how each vehicle and license plate is detected, recognized, and processed step by step.
+### Core Features
+
+**Comprehensive Vehicle Analysis**:
+The backend processes video frames to detect vehicles and extract key details, including:
+-   High-resolution images of the **vehicle** and **license plate**.
+-   Vehicle's **brand**, **color**, and **license plate number**.
+
+> **Supported Brands:**
+> <p align="left">
+> <img src="documents/car_logo/BMW.svg" alt="BMW" width="45" height="45"/>
+> <img src="documents/car_logo/BYD.svg" alt="BYD" width="45" height="45"/>
+> <img src="documents/car_logo/Chevrolet.svg" alt="Chevrolet" width="45" height="45"/>
+> <img src="documents/car_logo/Ford.svg" alt="Ford" width="45" height="45"/>
+> <img src="documents/car_logo/Haval.svg" alt="Haval" width="45" height="45"/>
+> <img src="documents/car_logo/Honda.svg" alt="Honda" width="45" height="45"/>
+> <img src="documents/car_logo/Hyundai.svg" alt="Hyundai" width="45" height="45"/>
+> <img src="documents/car_logo/Isuzu.svg" alt="Isuzu" width="45" height="45"/>
+> <img src="documents/car_logo/Lexus.svg" alt="Lexus" width="45" height="45"/>
+> <img src="documents/car_logo/Mazda.svg" alt="Mazda" width="45" height="45"/>
+> <img src="documents/car_logo/Mercedes Benz.svg" alt="Mercedes Benz" width="45" height="45"/>
+> <img src="documents/car_logo/MG.svg" alt="MG" width="45" height="45"/>
+> <img src="documents/car_logo/Mitsubishi.svg" alt="Mitsubishi" width="45" height="45"/>
+> <img src="documents/car_logo/Nissan.svg" alt="Nissan" width="45" height="45"/>
+> <img src="documents/car_logo/Ora.svg" alt="ORA" width="45" height="45"/>
+> <img src="documents/car_logo/Subaru.svg" alt="Subaru" width="45" height="45"/>
+> <img src="documents/car_logo/Suzuki.svg" alt="Suzuki" width="45" height="45"/>
+> <img src="documents/car_logo/Tesla.svg" alt="Tesla" width="45" height="45"/>
+> <img src="documents/car_logo/Toyota.svg" alt="Toyota" width="45" height="45"/>
+> </p>
+
+**Advanced Accuracy Enhancement Techniques**:
+To ensure reliability, especially with challenging camera angles or motion blur, several techniques were implemented:
+-   **Multi-Frame Processing:** The system cross-verifies recognition results from multiple consecutive frames to determine the most accurate license plate number.
+-   **Automatic Perspective Correction:** Detected license plates are automatically de-skewed and warped to a straight-on perspective before character recognition, significantly improving accuracy.
+
+## Project Evolution & Impact
+
+Beyond its core design, the project's success is defined by its adaptability and integration into a commercial environment.
+
+### Deployment Journey: From Edge to Server
+The project demonstrates adaptability across different hardware environments:
+-   **Prototype Phase:** Initially deployed on a **Raspberry Pi**, using the **NCNN** framework for CPU-optimized inference on an edge device.
+-   **Production Phase:** Evolved into a scalable solution **containerized with Docker**, designed for deployment on production Linux servers.
+
+### Commercial Integration
+The application was successfully integrated as the core ANPR engine for the commercial **Venus Sentinel** security platform. To achieve this, its architecture was specifically adapted for headless operation and inter-service communication:
+
+1.  **Configuration Web Interface**: For the commercial product, the application provided a secure, staff-only web UI used exclusively for initial system setup and configuration during deployment. Once configured, the application runs as a headless background service.
+
+2.  **Backend REST API**: To enable communication with the main platform's backend, my application's architecture was expanded to include a REST API. This API serves as the data bridge, transmitting real-time detection results—including plate number, vehicle details, and timestamp to the platform, which in turn triggers automated actions like opening gate barriers.
+
+This integration was a collaborative effort, developed in close cooperation with other teams within the company.
+
+## System Visuals
+
+### License Plate Processing Pipeline
+
+*This view provides a detailed breakdown of the license plate recognition pipeline. It visualizes each step, from video frame to plate number recognition, offering full transparency into the AI's process.*
 
 ![Processing Breakdown](documents/images/Breakdown.png)
 
-### **Database View (License Plate Number Recognition)**
+### Data Management & Labeling Workflow
 
-The database view provides a centralized interface for managing recognized license plate information.
+*These screenshots showcase the integrated workflow for the **Dataset Mode**. The top image shows the **Database View**, which provides a log of all recognized vehicle data.*
 
 ![Database View](documents/images/Database.png)
 
-### **Data Labeling Interface**
-
-The data labeling interface enables users to review recognition results and label them as either **correct** or **incorrect**. This feedback helps improve the system’s accuracy over time by refining the underlying models.
+*From this view, an operator can use the **Data Labeling Interface** (bottom image) to review each entry, validate the results as `correct` or `wrong`, and make corrections. This entire process is designed to create clean, high-quality datasets for model improvement.*
 
 ![Data Labeling](documents/images/Labeling.png)
-
-
-### **Data Dashboard**
-
-The dashboard interface allows users to review and summarize the recognition system's accuracy after data labeling. Note that, it displays only approved data.
-
-![Dashboard](documents/images/Dashboard.png)
