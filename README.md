@@ -1,5 +1,7 @@
 # Real-time Vehicle Detection & License Plate Recognition System
 
+*Gif image please wait*
+
 ![Demo Animation](documents/images/demo_v2.gif)
 
 > **Portfolio Showcase**: This repository contains documentation for a project I developed and led during my employment. Therefore, source code is not available. This `README` serves as a detailed showcase of the system's architecture, features, and technical implementation.
@@ -126,12 +128,20 @@ This integration was a collaborative effort, developed in close cooperation with
 ## System Visuals
 
 ### Responsive Design
-*The entire web interface is built with a responsive design, ensuring full functionality and a seamless user experience across devices, from large desktop monitors to tablets and mobile phones.*
+To provide a great user experience on any device, the web interface uses a responsive design. The page layout and navigation automatically adjust for the best view, whether on large desktop monitors, tablets, or small mobile screens.
 
-![Responsive Design](documents/images/Responsive.png)
+**Desktop & Tablet View**
+On large screens, the interface utilizes the available space to display information in a multi-column layout for easy navigation and data visibility.
+
+![Desktop View](documents/images/LargeScreen.png)
+
+**Mobile View**
+On mobile devices, the layout transforms into a single-column, touch-friendly format. The navigation collapses and content is stacked vertically for easy scrolling.
+
+![Mobile View](documents/images/SmallScreen.png)
 
 ### Live Status Monitoring
-The application's main navigation bar doubles as a real-time status panel, providing operators with at-a-glance situational awareness. Using WebSockets, it continuously streams key metrics, including:
+The application's main navigation bar also works as a live status display. This design helps operators quickly see important system information. Using WebSockets, the system sends live data to the bar, showing key metrics like:
 -   The number of active viewers on the page.
 -   An overall system health indicator.
 -   The status of the connected camera stream.
@@ -141,16 +151,17 @@ The application's main navigation bar doubles as a real-time status panel, provi
 
 ### License Plate Processing Pipeline
 
-*This view provides a detailed breakdown of the license plate recognition pipeline. It visualizes each step, from video frame to plate number recognition, offering full transparency into the AI's process.*
+This view provides a detailed breakdown of the license plate recognition pipeline. It visualizes each step, from video frame to plate number recognition, offering full transparency into the AI's process.
 
 ![Processing Breakdown](documents/images/Breakdown.png)
 
 ### Data Management & Labeling Workflow
+The application includes a powerful workflow for creating high-quality datasets when **Dataset Mode** is active. This process involves two main interfaces shown below.
 
-*These screenshots showcase the integrated workflow for the **Dataset Mode**. The top image shows the **Database View**, which provides a log of all recognized vehicle data.*
-
+**Database View**
+This interface provides a complete, searchable log of all vehicle data captured by the system. Operators can quickly see every entry with its saved images and the AI's predicted information, serving as the central hub for data management.
 ![Database View](documents/images/Database.png)
 
-*From this view, an operator can use the **Data Labeling Interface** (bottom image) to review each entry, validate the results as `correct` or `wrong`, and make corrections. This entire process is designed to create clean, high-quality datasets for model improvement.*
-
+**Data Labeling Interface**
+From the database, each entry can be opened in the labeling interface. Here, an operator can carefully review the AI's results, mark them as `correct` or `wrong`, and manually fix any errors in the recognized text. This step is critical for creating the clean, human-verified datasets needed for future model improvement.
 ![Data Labeling](documents/images/Labeling.png)
