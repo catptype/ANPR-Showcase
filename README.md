@@ -35,7 +35,6 @@ The system is built with a modern, full-stack architecture, leveraging specializ
   <a href="https://www.w3schools.com/css/" title="CSS3"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
   <a href="https://www.w3schools.com/js/" title="JavaScript"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
   <a href="https://getbootstrap.com/" title="Bootstrap"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" title="WebSockets"><img src="https://api.iconify.design/logos:websocket.svg" alt="WebSockets" width="50" height="50"/></a>
 </p>
 
 ### Databases & Caching
