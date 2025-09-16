@@ -116,7 +116,7 @@ The project demonstrates adaptability across different hardware environments:
 -   **Production Phase:** Evolved into a scalable solution **containerized with Docker**, designed for deployment on production Linux servers.
 
 ### Commercial Integration
-The application was successfully integrated as the core ANPR engine for the commercial **Venus Sentinel** security platform. To achieve this, its architecture was specifically adapted for headless operation and inter-service communication:
+The application was successfully integrated as the core ANPR engine for the commercial [**Venus Sentinel**](https://bgs.co.th/venus-sentinel-%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AD%E0%B8%B1%E0%B8%95%E0%B9%82%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%95%E0%B8%B4/) security platform. To achieve this, its architecture was specifically adapted for headless operation and inter-service communication:
 
 1.  **Configuration Web Interface**: For the commercial product, the application provided a secure, staff-only web UI used exclusively for initial system setup and configuration during deployment. Once configured, the application runs as a headless background service.
 
