@@ -17,7 +17,7 @@ As the sole developer at my company, I was tasked with building a real-time Auto
 *   **Edge Deployment:** Deploying the initial application on a **Raspberry Pi 5 using Docker**, ensuring it was highly optimized for CPU-only inference.
 *   **Production CI/CD & Deployment:** Establishing a **GitLab CI/CD pipeline** to automatically build and publish Docker images to the company's private registry. I also handled pre-production testing, including configuring **Nginx as a reverse proxy** for the final integration.
 
-This project was a fantastic opportunity to take an idea from a solo concept to a key feature in a commercial product, the **"Venus Sentinel"** automated barrier system.
+This project was a fantastic opportunity to take an idea from a solo concept to a key feature in a commercial product, the **[Venus Sentinel](https://bgs.co.th/venus-sentinel-%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AD%E0%B8%B1%E0%B8%95%E0%B9%82%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%95%E0%B8%B4/)** automated barrier system.
 
 ## Key Features
 
