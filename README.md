@@ -19,6 +19,47 @@ As the sole developer at my company, I was tasked with building a real-time Auto
 
 This project was a fantastic opportunity to take an idea from a solo concept to a key feature in a commercial product, the **[Venus Sentinel](https://bgs.co.th/venus-sentinel-%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AD%E0%B8%B1%E0%B8%95%E0%B9%82%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%95%E0%B8%B4/)** automated barrier system.
 
+## Tech Stack
+
+The system is built with a modern, full-stack architecture, leveraging specialized tools for each layer of the application.
+
+### Backend
+<p>
+  <a href="https://www.python.org/" title="Python"><img src="https://api.iconify.design/logos:python.svg" alt="Python" width="50" height="50"/></a>
+  <a href="https://www.djangoproject.com/" title="Django"><img src="https://api.iconify.design/skill-icons:django.svg" alt="Django" width="50" height="50"/></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" title="WebSockets"><img src="https://api.iconify.design/logos:websocket.svg" alt="WebSockets" width="50" height="50"/></a>
+</p>
+
+### AI & Computer Vision
+<p>
+  <a href="https://pytorch.org/" title="PyTorch"><img src="https://api.iconify.design/logos:pytorch-icon.svg" alt="PyTorch" width="50" height="50"/></a>
+  <a href="https://docs.ultralytics.com/" title="Ultralytics YOLO"><img src="documents/images/ultralytics.svg" alt="Ultralytics" width="50" height="50"/></a>
+  <a href="https://opencv.org/" title="OpenCV"><img src="https://api.iconify.design/logos:opencv.svg" alt="OpenCV" width="50" height="50"/></a>
+</p>
+
+### Frontend
+<p>
+  <a href="https://www.w3schools.com/html/" title="HTML5"><img src="https://api.iconify.design/logos:html-5.svg" alt="HTML" width="50" height="50"/></a>
+  <a href="https://www.w3schools.com/css/" title="CSS3"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
+  <a href="https://www.w3schools.com/js/" title="JavaScript"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
+  <a href="https://getbootstrap.com/" title="Bootstrap"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
+</p>
+
+### Databases & Caching
+<p>
+  <a href="https://www.mysql.com/" title="MySQL"><img src="https://api.iconify.design/logos:mysql.svg" alt="MySQL" width="50" height="50"/></a>
+  <a href="https://www.sqlite.org/" title="SQLite"><img src="https://api.iconify.design/logos:sqlite.svg" alt="SQLite" width="50" height="50"/></a>
+  <a href="https://redis.io/" title="Redis"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
+</p>
+
+  > **Note on Databases**: This project leverages the **Django ORM** for all database interactions (MySQL/SQLite). This approach abstracts away raw SQL queries and makes the system flexible, allowing it to work with any database backend officially supported by Django (such as PostgreSQL, MariaDB, etc.). **Redis** is used separately for high-speed caching and real-time messaging tasks.
+
+### Deployment & Infrastructure
+<p>
+  <a href="https://www.docker.com/" title="Docker"><img src="https://api.iconify.design/logos:docker-icon.svg" alt="Docker" width="50" height="50"/></a>
+  <a href="https://www.raspberrypi.com/" title="Raspberry Pi"><img src="https://api.iconify.design/devicon:raspberrypi.svg" alt="Raspberry Pi" width="50" height="50"/></a>
+</p>
+
 ## Key Features
 
 The system processes live video streams to detect and analyze vehicles in real-time, providing the following capabilities:
@@ -69,46 +110,6 @@ The project's architecture was designed to be adaptable, proving its capability 
 
 -   **Phase 1: Edge Computing Prototype:** The initial version was optimized for low-power hardware, successfully deploying on a **Raspberry Pi 5**. Using the **NCNN** framework, it achieved efficient CPU-only inference at 300ms/frame on a 1080p stream.
 -   **Phase 2: Commercial Integration & Scaling:** For the **Venus Sentinel** security platform, the system was scaled up. It was **containerized with Docker** for deployment on production Linux servers. The architecture was expanded to include a **headless REST API**, allowing it to serve as the core ANPR engine that communicates detection results to the main platform, triggering actions like opening gate barriers.
-
-## Tech Stack
-
-The system is built with a modern, full-stack architecture, leveraging specialized tools for each layer of the application.
-
-### Backend
-<p>
-  <a href="https://www.python.org/" title="Python"><img src="https://api.iconify.design/logos:python.svg" alt="Python" width="50" height="50"/></a>
-  <a href="https://www.djangoproject.com/" title="Django"><img src="https://api.iconify.design/skill-icons:django.svg" alt="Django" width="50" height="50"/></a>
-</p>
-
-### AI & Computer Vision
-<p>
-  <a href="https://pytorch.org/" title="PyTorch"><img src="https://api.iconify.design/logos:pytorch-icon.svg" alt="PyTorch" width="50" height="50"/></a>
-  <a href="https://docs.ultralytics.com/" title="Ultralytics YOLO"><img src="documents/images/ultralytics.svg" alt="Ultralytics" width="50" height="50"/></a>
-  <a href="https://opencv.org/" title="OpenCV"><img src="https://api.iconify.design/logos:opencv.svg" alt="OpenCV" width="50" height="50"/></a>
-</p>
-
-### Frontend
-<p>
-  <a href="https://www.w3schools.com/html/" title="HTML5"><img src="https://api.iconify.design/logos:html-5.svg" alt="HTML" width="50" height="50"/></a>
-  <a href="https://www.w3schools.com/css/" title="CSS3"><img src="https://api.iconify.design/logos:css-3.svg" alt="CSS" width="50" height="50"/></a>
-  <a href="https://www.w3schools.com/js/" title="JavaScript"><img src="https://api.iconify.design/skill-icons:javascript.svg" alt="JavaScript" width="50" height="50"/></a>
-  <a href="https://getbootstrap.com/" title="Bootstrap"><img src="https://api.iconify.design/logos:bootstrap.svg" alt="Bootstrap" width="50" height="50"/></a>
-</p>
-
-### Databases & Caching
-<p>
-  <a href="https://www.mysql.com/" title="MySQL"><img src="https://api.iconify.design/logos:mysql.svg" alt="MySQL" width="50" height="50"/></a>
-  <a href="https://www.sqlite.org/" title="SQLite"><img src="https://api.iconify.design/logos:sqlite.svg" alt="SQLite" width="50" height="50"/></a>
-  <a href="https://redis.io/" title="Redis"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
-</p>
-
-  > **Note on Databases**: This project leverages the **Django ORM** for all database interactions (MySQL/SQLite). This approach abstracts away raw SQL queries and makes the system flexible, allowing it to work with any database backend officially supported by Django (such as PostgreSQL, MariaDB, etc.). **Redis** is used separately for high-speed caching and real-time messaging tasks.
-
-### Deployment & Infrastructure
-<p>
-  <a href="https://www.docker.com/" title="Docker"><img src="https://api.iconify.design/logos:docker-icon.svg" alt="Docker" width="50" height="50"/></a>
-  <a href="https://www.raspberrypi.com/" title="Raspberry Pi"><img src="https://api.iconify.design/devicon:raspberrypi.svg" alt="Raspberry Pi" width="50" height="50"/></a>
-</p>
 
 ## System Visuals
 
