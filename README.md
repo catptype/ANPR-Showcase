@@ -52,7 +52,7 @@ The system is built with a modern, full-stack architecture, leveraging specializ
   <a href="https://redis.io/" title="Redis"><img src="https://api.iconify.design/skill-icons:redis-light.svg" alt="Redis" width="50" height="50"/></a>
 </p>
 
-  > **Note on Databases**: This project leverages the **Django ORM** for all database interactions (MySQL/SQLite). This approach abstracts away raw SQL queries and makes the system flexible, allowing it to work with any database backend officially supported by Django (such as PostgreSQL, MariaDB, etc.). **Redis** is used separately for high-speed caching and real-time messaging tasks.
+  > **Note on Databases**: This project leverages the **Django ORM** for all database interactions (MySQL/SQLite). This approach abstracts away raw SQL queries and makes the system flexible, allowing it to work with any database backend [officially](https://docs.djangoproject.com/en/5.2/ref/databases/) supported by Django (such as PostgreSQL, MariaDB, etc.). **Redis** is used separately for high-speed caching and real-time messaging tasks.
 
 ### Deployment & Infrastructure
 <p>
