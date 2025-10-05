@@ -6,11 +6,69 @@
 
 > **Portfolio Showcase**: This repository contains documentation for a project I developed and led during my employment. Therefore, source code is not available. This `README` serves as a detailed showcase of the system's architecture, features, and technical implementation.
 
-## Project Overview
+## Project Narrative & My Role
 
-This project is a **real-time Automatic Number Plate Recognition (ANPR) system**, developed as a full-stack Django web application. Its core function is to process live video streams from IP cameras (via RTSP) to automatically detect vehicles and extract key information, including their **brand**, **color**, and **license plate number**.
+As the sole developer at my company, I was tasked with building a real-time Automatic Number Plate Recognition (ANPR) system from the ground up to serve as the core technology for a new automated security platform. I was responsible for the **entire project lifecycle**, from research and data collection to deployment and integration.
 
-The application’s frontend provides a web interface for users to monitor the live video feed and review detection results in real-time. In parallel, the backend continuously runs AI inferences, processing video frames from the IP cameras to identify vehicles and their attributes.
+*   **Data Scarcity Problem:** Collecting, augmenting, and labeling a custom dataset for Thai license plates, as no suitable public dataset existed.
+*   **AI Model Development:** Training and optimizing computer vision models for vehicle detection, brand/color classification, and license plate recognition.
+*   **Full-Stack Development:** Designing and building a robust, multi-threaded backend with Django and a responsive frontend from scratch.
+*   **System Architecture:** Engineering a high-performance pipeline capable of real-time processing on hardware ranging from a Raspberry Pi to production servers.
+*   **Edge Deployment:** Deploying the initial application on a **Raspberry Pi 5 using Docker**, ensuring it was highly optimized for CPU-only inference.
+*   **Production CI/CD & Deployment:** Establishing a **GitLab CI/CD pipeline** to automatically build and publish Docker images to the company's private registry. I also handled pre-production testing, including configuring **Nginx as a reverse proxy** for the final integration.
+
+This project was a fantastic opportunity to take an idea from a solo concept to a key feature in a commercial product, the **"Venus Sentinel"** automated barrier system.
+
+## Key Features
+
+The system processes live video streams to detect and analyze vehicles in real-time, providing the following capabilities:
+
+- **Comprehensive Vehicle Analysis**: Extracts vehicle brand, color, and license plate number with over 95% accuracy on plate and province recognition.
+- **Live Monitoring Dashboard**: A fully responsive web interface provides a real-time video feed, the latest detection results, and system performance stats.
+- **Advanced Accuracy Enhancement**: Utilizes multi-frame processing and automatic perspective correction to ensure high reliability even with motion blur or challenging camera angles.
+- **Integrated Data Labeling Workflow**: Includes a "Dataset Mode" with a built-in web UI to review, correct, and validate predictions, creating a feedback loop for continuous model improvement.
+
+> **Supported Brands:**
+> <p align="left">
+> <img src="documents/car_logo/BMW.svg" alt="BMW" width="45" height="45"/>
+> <img src="documents/car_logo/BYD.svg" alt="BYD" width="45" height="45"/>
+> <img src="documents/car_logo/Chevrolet.svg" alt="Chevrolet" width="45" height="45"/>
+> <img src="documents/car_logo/Ford.svg" alt="Ford" width="45" height="45"/>
+> <img src="documents/car_logo/Haval.svg" alt="Haval" width="45" height="45"/>
+> <img src="documents/car_logo/Honda.svg" alt="Honda" width="45" height="45"/>
+> <img src="documents/car_logo/Hyundai.svg" alt="Hyundai" width="45" height="45"/>
+> <img src="documents/car_logo/Isuzu.svg" alt="Isuzu" width="45" height="45"/>
+> <img src="documents/car_logo/Lexus.svg" alt="Lexus" width="45" height="45"/>
+> <img src="documents/car_logo/Mazda.svg" alt="Mazda" width="45" height="45"/>
+> <img src="documents/car_logo/Mercedes Benz.svg" alt="Mercedes Benz" width="45" height="45"/>
+> <img src="documents/car_logo/MG.svg" alt="MG" width="45" height="45"/>
+> <img src="documents/car_logo/Mitsubishi.svg" alt="Mitsubishi" width="45" height="45"/>
+> <img src="documents/car_logo/Nissan.svg" alt="Nissan" width="45" height="45"/>
+> <img src="documents/car_logo/Ora.svg" alt="ORA" width="45" height="45"/>
+> <img src="documents/car_logo/Subaru.svg" alt="Subaru" width="45" height="45"/>
+> <img src="documents/car_logo/Suzuki.svg" alt="Suzuki" width="45" height="45"/>
+> <img src="documents/car_logo/Tesla.svg" alt="Tesla" width="45" height="45"/>
+> <img src="documents/car_logo/Toyota.svg" alt="Toyota" width="45" height="45"/>
+> </p>
+
+## System Architecture & Technical Deep Dive
+
+To achieve real-time performance, the system is built on a high-performance, multi-threaded pipeline.
+
+- **Multi-threaded Pipeline**: The backend separates video capture, AI inference, and WebSocket broadcasting into concurrent threads to prevent blocking and ensure a smooth data flow from the camera to the UI.
+- **AI & Computer Vision Pipeline**: Each frame undergoes a multi-step process:
+    1.  **Vehicle Detection:** Identifies vehicles using a YOLO-based model.
+    2.  **License Plate Detection:** Locates the license plate within the vehicle bounding box.
+    3.  **Perspective Correction:** Automatically de-skews the license plate image.
+    4.  **Character Recognition (OCR):** Extracts the plate number and province.
+- **Data Management**: Uses MySQL for persistent storage of detection logs and Redis for high-speed caching and real-time messaging between backend services.
+
+## The Development Journey: From Edge to Enterprise
+
+The project's architecture was designed to be adaptable, proving its capability across vastly different hardware environments.
+
+-   **Phase 1: Edge Computing Prototype:** The initial version was optimized for low-power hardware, successfully deploying on a **Raspberry Pi 5**. Using the **NCNN** framework, it achieved efficient CPU-only inference at 300ms/frame on a 1080p stream.
+-   **Phase 2: Commercial Integration & Scaling:** For the **Venus Sentinel** security platform, the system was scaled up. It was **containerized with Docker** for deployment on production Linux servers. The architecture was expanded to include a **headless REST API**, allowing it to serve as the core ANPR engine that communicates detection results to the main platform, triggering actions like opening gate barriers.
 
 ## Tech Stack
 
@@ -50,117 +108,54 @@ The system is built with a modern, full-stack architecture, leveraging specializ
   <a href="https://www.raspberrypi.com/" title="Raspberry Pi"><img src="https://api.iconify.design/devicon:raspberrypi.svg" alt="Raspberry Pi" width="50" height="50"/></a>
 </p>
 
-## System Architecture & Key Features
-
-This section details both the architecture that powers the system and the key features it provides to the end-user.
-
-### Architectural Design
-
-**High-Performance Multi-threaded Pipeline**:
-To ensure smooth real-time performance, the backend operates on a multi-threaded architecture. This design separates concerns, allowing tasks to run concurrently without blocking the main application:
-
-- **Video Capture Thread**: Connects to the RTSP stream and continuously fetches frames.
-- **AI Inference Thread**: Performs vehicle/plate detection and recognition on video frames.
-- **Real-time Broadcasting Thread**: Pushes results to the web UI via WebSockets for live monitoring.
-- **System Health Thread**: Monitors performance and reports status, also via WebSockets.
-
-**Data Collection & Labeling for Model Improvement**:
-The application includes an optional **Dataset Mode** designed to generate high-quality data for training improved AI models. When this mode is activated:
-
--   The system automatically saves all prediction results, including cropped images of vehicles and license plates, to database.
--   A built-in web interface allows operators to review, correct, and validate this saved prediction data.
--   This workflow provides a powerful, self-contained tool for creating clean, verified datasets ready for model retraining.
-
-### Core Features
-
-**Comprehensive Vehicle Analysis**:
-The backend processes video frames to detect vehicles and extract key details, including:
--   High-resolution images of the **vehicle** and **license plate**.
--   Vehicle's **brand**, **color**, and **license plate number**.
-
-> **Supported Brands:**
-> <p align="left">
-> <img src="documents/car_logo/BMW.svg" alt="BMW" width="45" height="45"/>
-> <img src="documents/car_logo/BYD.svg" alt="BYD" width="45" height="45"/>
-> <img src="documents/car_logo/Chevrolet.svg" alt="Chevrolet" width="45" height="45"/>
-> <img src="documents/car_logo/Ford.svg" alt="Ford" width="45" height="45"/>
-> <img src="documents/car_logo/Haval.svg" alt="Haval" width="45" height="45"/>
-> <img src="documents/car_logo/Honda.svg" alt="Honda" width="45" height="45"/>
-> <img src="documents/car_logo/Hyundai.svg" alt="Hyundai" width="45" height="45"/>
-> <img src="documents/car_logo/Isuzu.svg" alt="Isuzu" width="45" height="45"/>
-> <img src="documents/car_logo/Lexus.svg" alt="Lexus" width="45" height="45"/>
-> <img src="documents/car_logo/Mazda.svg" alt="Mazda" width="45" height="45"/>
-> <img src="documents/car_logo/Mercedes Benz.svg" alt="Mercedes Benz" width="45" height="45"/>
-> <img src="documents/car_logo/MG.svg" alt="MG" width="45" height="45"/>
-> <img src="documents/car_logo/Mitsubishi.svg" alt="Mitsubishi" width="45" height="45"/>
-> <img src="documents/car_logo/Nissan.svg" alt="Nissan" width="45" height="45"/>
-> <img src="documents/car_logo/Ora.svg" alt="ORA" width="45" height="45"/>
-> <img src="documents/car_logo/Subaru.svg" alt="Subaru" width="45" height="45"/>
-> <img src="documents/car_logo/Suzuki.svg" alt="Suzuki" width="45" height="45"/>
-> <img src="documents/car_logo/Tesla.svg" alt="Tesla" width="45" height="45"/>
-> <img src="documents/car_logo/Toyota.svg" alt="Toyota" width="45" height="45"/>
-> </p>
-
-**Advanced Accuracy Enhancement Techniques**:
-To ensure reliability, especially with challenging camera angles or motion blur, several techniques were implemented:
--   **Multi-Frame Processing:** The system cross-verifies recognition results from multiple consecutive frames to determine the most accurate license plate number.
--   **Automatic Perspective Correction:** Detected license plates are automatically de-skewed and warped to a straight-on perspective before character recognition, significantly improving accuracy.
-
-## Project Evolution & Impact
-
-Beyond its core design, the project's success is defined by its adaptability and integration into a commercial environment.
-
-### Deployment Journey: From Edge to Server
-The project demonstrates adaptability across different hardware environments:
--   **Prototype Phase:** Initially deployed on a **Raspberry Pi**, using the **NCNN** framework for CPU-optimized inference on an edge device.
--   **Production Phase:** Evolved into a scalable solution **containerized with Docker**, designed for deployment on production Linux servers.
-
-### Commercial Integration
-The application was successfully integrated as the core ANPR engine for the commercial [**Venus Sentinel**](https://bgs.co.th/venus-sentinel-%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AD%E0%B8%B1%E0%B8%95%E0%B9%82%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%95%E0%B8%B4/) security platform. To achieve this, its architecture was specifically adapted for headless operation and inter-service communication:
-
-1.  **Configuration Web Interface**: For the commercial product, the application provided a secure, staff-only web UI used exclusively for initial system setup and configuration during deployment. Once configured, the application runs as a headless background service.
-
-2.  **Backend REST API**: To enable communication with the main platform's backend, my application's architecture was expanded to include a REST API. This API serves as the data bridge, transmitting real-time detection results—including plate number, vehicle details, and timestamp to the platform, which in turn triggers automated actions like opening gate barriers.
-
-This integration was a collaborative effort, developed in close cooperation with other teams within the company.
-
 ## System Visuals
 
-### Responsive Design
-To provide a great user experience on any device, the web interface uses a responsive design. The page layout and navigation automatically adjust for the best view, whether on large desktop monitors, tablets, or small mobile screens.
+I designed the user interface to be intuitive for operators, providing real-time data at a glance while ensuring full functionality across all devices.
+
+### Responsive UI/UX Design
+To ensure a seamless user experience, I built the web interface to be fully responsive. The layout automatically adapts for optimal viewing and interaction, whether on a large desktop monitor or a small mobile screen.
 
 **Desktop & Tablet View**
-On large screens, the interface utilizes the available space to display information in a multi-column layout for easy navigation and data visibility.
-
+On large screens, the interface uses a multi-column layout for at-a-glance monitoring, allowing operators to see the live feed, detection data, and system settings simultaneously.
 ![Desktop View](documents/images/LargeScreen.png)
 
 **Mobile View**
-On mobile devices, the layout transforms into a single-column, touch-friendly format. The navigation collapses and content is stacked vertically for easy scrolling.
-
+On mobile devices, the layout intelligently collapses into a single-column, touch-friendly format, making it easy to monitor the system on the go.
 ![Mobile View](documents/images/SmallScreen.png)
 
-### Live Status Monitoring
-The application's main navigation bar also works as a live status display. This design helps operators quickly see important system information. Using WebSockets, the system sends live data to the bar, showing key metrics like:
--   The number of active viewers on the page.
--   An overall system health indicator.
--   The status of the connected camera stream.
--   A synchronized system clock.
+---
+
+### Real-Time Status Dashboard
+The main navigation bar doubles as a live status dashboard. I used WebSockets to push real-time data directly to the UI, giving operators immediate insight into key system metrics:
+
+*   Live viewer count
+*   Overall system health
+*   Camera connection status
+*   System clock
 
 ![Live Monitoring Status Bar](documents/images/Navbar.png)
 
-### License Plate Processing Pipeline
+---
 
-This view provides a detailed breakdown of the license plate recognition pipeline. It visualizes each step, from video frame to plate number recognition, offering full transparency into the AI's process.
+### AI Transparency: The Processing Pipeline
+To make the AI's decision-making process clear, I created a view that visualizes the entire license plate recognition pipeline. This allows operators to see exactly how the system processes a video frame to identify a plate number, step by step.
 
 ![Processing Breakdown](documents/images/Breakdown.png)
 
-### Data Management & Labeling Workflow
-The application includes a powerful workflow for creating high-quality datasets when **Dataset Mode** is active. This process involves two main interfaces shown below.
+---
+
+### Integrated Data Management & Labeling Workflow
+
+To solve the initial data scarcity problem and enable continuous model improvement, I built a powerful data collection workflow directly into the application, which can be activated using **Dataset Mode**.
+
+When this mode is on, the system saves all detection results. I then designed two interfaces to turn this raw data into a high-quality dataset for retraining the AI model.
 
 **Database View**
-This interface provides a complete, searchable log of all vehicle data captured by the system. Operators can quickly see every entry with its saved images and the AI's predicted information, serving as the central hub for data management.
+I created this interface to provide a complete, searchable log of all vehicle data captured by the system while in **Dataset Mode**. It allows an operator to quickly review every entry, including saved images and the AI's predictions, serving as the main hub for managing the collected data.
+
 ![Database View](documents/images/Database.png)
 
 **Data Labeling Interface**
-From the database, each entry can be opened in the labeling interface. Here, an operator can carefully review the AI's results, mark them as `correct` or `wrong`, and manually fix any errors in the recognized text. This step is critical for creating the clean, human-verified datasets needed for future model improvement.
+From the database view, any entry can be opened in the labeling interface. Here, an operator can carefully review the AI's results, correct any mistakes in the recognized text, and formally mark the data as `correct` or `wrong`. This feedback loop was my solution for creating the clean, human-verified datasets essential for improving the model's accuracy over time.
+
 ![Data Labeling](documents/images/Labeling.png)
