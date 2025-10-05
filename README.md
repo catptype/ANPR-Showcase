@@ -119,10 +119,12 @@ To ensure a seamless user experience, I built the web interface to be fully resp
 
 **Desktop & Tablet View**
 On large screens, the interface uses a multi-column layout for at-a-glance monitoring, allowing operators to see the live feed, detection data, and system settings simultaneously.
+
 ![Desktop View](documents/images/LargeScreen.png)
 
 **Mobile View**
 On mobile devices, the layout intelligently collapses into a single-column, touch-friendly format, making it easy to monitor the system on the go.
+
 ![Mobile View](documents/images/SmallScreen.png)
 
 ---
